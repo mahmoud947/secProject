@@ -1,9 +1,7 @@
-from operator import truediv
-
 
 def validate_email(emaill):
     valuu = emaill.split("@")
-    host = str(valuu[1])
+    host = valuu[1]
     host2 = host.split(".")
     return host2[0]
 
@@ -53,7 +51,8 @@ def select_validation_type():
         select_validation_type()
     elif inee == 2:
         emails = input("enter your email\n")
-        print(validate_email(emails))
+        mail = validate_email(emails)
+        print(get_host(mail))
         select_validation_type()
     else:
         return
