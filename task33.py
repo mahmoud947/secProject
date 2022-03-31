@@ -1,9 +1,9 @@
 
 def validate_email(emaill):
-    valuu = emaill.split("@")
-    host = valuu[1]
-    host2 = host.split(".")
-    return host2[0]
+    valu = emaill.split("@")
+    email_after_at_split = valu[1]
+    email_after_dot_split = email_after_at_split.split(".")
+    return email_after_dot_split[0]
 
 
 def get_host(host):
@@ -25,15 +25,15 @@ def check_len(num):
 
 
 def validate_phone(num):
-    com = num[0:3]
+    first_three_num = num[0:3]
     if check_len(num):
-        if com == "010":
+        if first_three_num == "010":
             return "vodafone"
-        elif com == "011":
-            return "Etisalate"
-        elif com == "012":
+        elif first_three_num == "011":
+            return "Etisalat"
+        elif first_three_num == "012":
             return "Orange"
-        elif com == "015":
+        elif first_three_num == "015":
             return "We"
         else:
             return "Error"
@@ -43,13 +43,13 @@ def validate_phone(num):
 
 def select_validation_type():
     print("select validation type\n")
-    ine = input("1- phone \n2- email \n0-exit\n ")
-    inee = int(ine)
-    if inee == 1:
+    opts = input("1- phone \n2- email \n0-exit\n ")
+    selected_num = int(opts)
+    if selected_num == 1:
         phone = input("enter your phone\n")
         print(validate_phone(phone))
         select_validation_type()
-    elif inee == 2:
+    elif selected_num == 2:
         emails = input("enter your email\n")
         mail = validate_email(emails)
         print(get_host(mail))
